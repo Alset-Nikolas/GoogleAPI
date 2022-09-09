@@ -1,0 +1,29 @@
+version: '3'
+
+# docker-compose -f docker-compose.yml build
+# docker-compose -f docker-compose.yml up -d
+services:
+  app:
+    # restart: always
+    build: ./app
+    container_name: new_lvl
+    command: python main.py run -h 0.0.0.0 # WSGI server
+    volumes:
+      - ./app:/app
+    expose:
+      - 5000
+    depends_on:
+      - postgres
+    ports:
+      - "5000:5000"
+    entrypoint: [ "python3", "main.py" ]
+  postgres:
+    image: postgres:13-alpine
+    volumes:
+      - ./pg_db:/var/lib/postgresql/data/
+    environment:
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=qwerty
+      - POSTGRES_DB=db_cats
+    ports:
+      - "6000:5432"

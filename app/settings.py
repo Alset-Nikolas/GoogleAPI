@@ -1,0 +1,4 @@
+CREDENTIALS_FILE = "creds.json"
+spreadsheet_id = "192ee2Nt8VsnThS79iUp5H8d-w9NmaJndfUms-FQ6-Gg"
+TOKEN = "5645951815:AAFRO4sJqEdlwBO2oGhOeY3eyILuxg9OOEA"
+GROUP_ID = 360140545
